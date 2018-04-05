@@ -11,7 +11,6 @@ function preload() {
 function setup() {
   createCanvas(500, 500);
   //imageMode(CENTER);
-  frameRate(10);
   apple.x = width / 2; apple.y = height / 2;
 }
 
@@ -22,17 +21,18 @@ function draw() {
  }
  noStroke();
  background(0); 
- image(bg.i, bg.x, bg.y); 
+ image(bg.i, bg.x, bg.y);
  bg.i.resize(bg.w, bg.h);
  textSize(20);
  text("Score: " + score, 5, 25);
  ellipse(mouseX, mouseY, 5, 5);
-  image(apple.i, apple.x, apple.y);
+ image(apple.i, apple.x, apple.y);
+ collide_detector();
+ apple.x = width / 2; apple.y = width / 2
+ if(collide_detector() === true) {
+  score += 1;
   apple.x = random(0, width); apple.y = random(0, height);
-  collide_detector();
-  if(collide_detector() === true) {
-   score += 1;
-  }
+ }
 }
 
 function collide_detector() {

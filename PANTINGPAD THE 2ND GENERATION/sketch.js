@@ -39,3 +39,7 @@ function keyPressed() {
  text(letter, random(0, width), random(0, height));
  if(keyIsDown(32) === true) { background(random(0, 255), random(0, 255), random(0, 255)); }
 }
+
+function windowResized() {
+  resizeCanvas(window.innerWidth, window.innerHeight);
+}
